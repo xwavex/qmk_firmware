@@ -57,46 +57,58 @@ enum macro_keycodes {
 #define KC_GUIEI GUI_T(KC_LANG2)
 #define KC_ALTKN ALT_T(KC_LANG1)
 
+#define KC_MFWRD RGB_MODE_FORWARD
+#define KC_MRVSE RGB_MODE_REVERSE
+#define KC_MPLN RGB_MODE_PLAIN
+#define KC_MBRTH RGB_MODE_BREATHE
+#define KC_MRNBO RGB_MODE_RAINBOW
+#define KC_MSWRL RGB_MODE_SWIRL
+#define KC_MSNAK RGB_MODE_SNAKE
+#define KC_MKNIT RGB_MODE_KNIGHT
+#define KC_MXMAS RGB_MODE_XMAS
+#define KC_MGRAD RGB_MODE_GRADIENT
+#define KC_MTEST RGB_MODE_RGBTEST
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QWERTY] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
         ESC,     1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,  BSPC,\
   //,-----------------------------------------.                ,-----------------------------------------.
-      CTLTB,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSPC,\
+      CTLTB,     Q,     W,     E,     R,     T,                      Y,     U,     I,     O,     P,  BSLS,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      CTLTB,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,\
+       LSFT,     A,     S,     D,     F,     G,                      H,     J,     K,     L,  SCLN,  QUOT,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LSFT,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  RSFT,\
+      LCTRL,     Z,     X,     C,     V,     B,                      N,     M,  COMM,   DOT,  SLSH,  MINS,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                            LSFT, ALTKN, LOWER,   SPC,   ENT, RAISE, GUIEI, ENT \
+                            LCTRL, ALTKN, LOWER,   SPC,   ENT, RAISE, GUIEI, XXXXX \
                           //`------------------------'  `----------------------'
   ),
 
   [_LOWER] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        ESC,     1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,  BSPC,\
+       ESC, GRAVE, XXXXX, XXXXX, XXXXX, XXXXX,                 XXXXX,     LT,    GT, XXXXX, XXXXX, XXXXX,\
   //,-----------------------------------------.                ,-----------------------------------------.
-        ESC,     1,     2,     3,     4,     5,                      6,     7,     8,     9,     0,  BSPC,\
+       XXXXX, XXXXX,  EXLM,    AT,  HASH, XXXXX,                 XXXXX,   LPRN,  RPRN,    LT,    GT, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      CTLTB,    F1,    F2,    F3,    F4,    F5,                     F6,    F7,    F8,    F9,   F10, XXXXX,\
+       XXXXX, XXXXX,  PLUS,  PMNS,  ASTR,   EQL,                 XXXXX,   LCBR,  RCBR, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LSFT,   F11,   F12,   F13,   F14,   F15,                    F16,   F17,   F18,   F19,   F20, XXXXX,\
+       XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                 XXXXX,   LBRC,  RBRC, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                 ENT, GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN, ENT \
+                            LCTRL, ALTKN, LOWER,  SPC,  BSPC, RAISE, GUIEI, XXXXX \
                               //`--------------------'  `--------------------'
   ),
 
   [_RAISE] = LAYOUT_kc( \
   //,-----------------------------------------.                ,-----------------------------------------.
-        ESC,  EXLM,    AT,  HASH,   DLR,  PERC,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN,  BSPC,\
+       LTOG, MFWRD, MRVSE, XXXXX, XXXXX, XXXXX,                   MPLN, MBRTH, MRNBO, MSWRL, MSNAK, MKNIT,\
   //,-----------------------------------------.                ,-----------------------------------------.
-        ESC,  EXLM,    AT,  HASH,   DLR,  PERC,                   CIRC,  AMPR,  ASTR,  LPRN,  RPRN,  BSPC,\
+       LHUI,  LHUD,  LSAI,  LSAD,  LVAI,  LVAD,                  MXMAS, MXMAS, MGRAD, MTEST, XXXXX, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-      CTLTB, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                   MINS,   EQL,  LCBR,  RCBR,  PIPE,   GRV,\
+      XXXXX,  MUTE,  VOLD,  VOLU, XXXXX, XXXXX,                  XXXXX,    UP,  DOWN,  LEFT, RIGHT, XXXXX,\
   //|------+------+------+------+------+------|                |------+------+------+------+------+------|
-       LSFT, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,                   UNDS,  PLUS,  LBRC,  RBRC,  BSLS,  TILD,\
+      XXXXX, XXXXX,  BRID,  BRIU, XXXXX, XXXXX,                  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,\
   //|------+------+------+------+------+------+------|  |------+------+------+------+------+------+------|
-                                  ENT, GUIEI, LOWER,   SPC,      ENT, RAISE, ALTKN, ENT \
+                             LCTRL, ALTKN, LOWER, DEL,  ENT, RAISE, GUIEI, RWIN \
                               //`--------------------'  `--------------------'
   ),
 
